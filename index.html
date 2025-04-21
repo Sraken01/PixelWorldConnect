@@ -34,18 +34,41 @@
             margin-top: 20px;
             font-weight: bold;
         }
+
+        #download-button {
+            margin-top: 20px;
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            display: none;
+        }
     </style>
 </head>
 <body>
     <div id="content">
         <img id="bird-image" src="https://i.redd.it/1bl2mi5gfevc1.jpeg" alt="Random Bird Image">
         <div id="text">Ptoszek.pl akakuje za 5 sekund xd</div>
+        <button id="download-button" onclick="downloadImage()">???</button>
     </div>
 
     <script>
+        // Change text and show download button after 5 seconds
         setTimeout(function() {
             document.getElementById('text').innerText = 'to jest tylko troll XD';
-        }, 6000);
+            document.getElementById('download-button').style.display = 'inline-block';
+        }, 5000);
+
+        function downloadImage() {
+            // Create a temporary anchor element to trigger the download
+            var link = document.createElement('a');
+            link.href = 'https://ptoszek.pl';
+            link.download = 'bird-image.jpg';
+            link.click();
+        }
     </script>
 </body>
 </html>
